@@ -11,11 +11,10 @@ class Ninja {
     }
 
     showStats() {
-        console.log('Los stats del ninja son:');
         console.log('Nombre: ', this.name);
-        console.log('Fuerza: ', this.fuerza);
-        console.log('Velocidad: ', this.velocidad);
         console.log('Salud: ', this.salud);
+        console.log('Velocidad: ', this.velocidad);
+        console.log('Fuerza: ', this.fuerza);
     }
 
     drinkShake() {
@@ -23,8 +22,24 @@ class Ninja {
     }
 }
 
-let ninja = new Ninja('Javi', 5);
+class Sensei extends Ninja {
+    constructor(name) {
+        super(name, 200);
+        this.velocidad = 10;
+        this.fuerza = 10;
+        this.sabiduria = 10;
+        
+    }
 
-ninja.sayName()
-ninja.drinkShake()
-ninja.showStats()
+    speakWisdom() {
+        super.drinkShake()
+        console.log('Lo que un programador puede hacer en un mes, dos programadores pueden hacerlo en dos meses');
+    }
+}
+
+// ejemplo de salida
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+// -> "Lo que un programador puede hacer en un mes, dos programadores pueden hacerlo en dos meses."
+superSensei.showStats();
+// -> "Nombre: Master Splinter, Salud: 210, Velocidad: 10, Fuerza: 10"
